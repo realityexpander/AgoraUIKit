@@ -22,15 +22,16 @@ fun VideoScreen(
     viewModel: VideoViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
 ) {
     var agoraView: AgoraVideoViewer? = null
-    val permissionLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.RequestMultiplePermissions(),
-        onResult = { perms ->
-            viewModel.onPermissionsResult(
-                acceptedAudioPermission = perms[Manifest.permission.RECORD_AUDIO] == true,
-                acceptedCameraPermission = perms[Manifest.permission.CAMERA] == true,
-            )
-        }
-    )
+    val permissionLauncher =
+        rememberLauncherForActivityResult(
+            contract = ActivityResultContracts.RequestMultiplePermissions(),
+            onResult = { perms ->
+                viewModel.onPermissionsResult(
+                    acceptedAudioPermission = perms[Manifest.permission.RECORD_AUDIO] == true,
+                    acceptedCameraPermission = perms[Manifest.permission.CAMERA] == true,
+                )
+            }
+        )
 
     // Get permission for audio and camera
     LaunchedEffect(key1 = true) {

@@ -36,10 +36,12 @@ fun RoomScreen(
                 Text(text = "Enter a room name")
             }
         )
+
         viewModel.roomName.value.error?.let {
             Text(text = it, color = MaterialTheme.colors.error)
         }
         Spacer(modifier = Modifier.height(8.dp))
+
         Button(onClick = viewModel::onJoinRoom) {
             Text(text = "Join")
         }
