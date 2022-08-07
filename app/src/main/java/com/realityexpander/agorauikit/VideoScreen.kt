@@ -59,7 +59,7 @@ fun VideoScreen(
                 ).also {
                     it.join(
                         roomName,
-                        token = AGORA_TEMP_RTC_TOKEN
+                        token = AGORA_TEMP_RTC_TOKEN // only good for 24 hours
                     )
                     agoraView = it
                 }
