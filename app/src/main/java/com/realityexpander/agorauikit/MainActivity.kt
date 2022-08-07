@@ -15,8 +15,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.realityexpander.agorauikit.ui.theme.AgoraUIKitTheme
 
-const val APP_ID = "1394924a190b418d90c9f18372de992d"
-
 @ExperimentalUnsignedTypes
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

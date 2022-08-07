@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
+import com.realityexpander.agorauikit.BuildConfig.AGORA_API
 import io.agora.agorauikit_android.AgoraConnectionData
 import io.agora.agorauikit_android.AgoraVideoViewer
 
@@ -46,7 +47,7 @@ fun VideoScreen(
             factory = {
                 AgoraVideoViewer(
                     it, connectionData = AgoraConnectionData(
-                        appId = APP_ID
+                        appId = AGORA_API
                     )
                 ).also {
                     it.join(roomName)

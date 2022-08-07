@@ -17,6 +17,9 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        // Get API Key from https://console.agora.io/ should be kept in `api.properties` file
+        buildConfigField "String", "AGORA_API", getApiProps("AGORA_API")
     }
 
     buildTypes {
@@ -77,4 +80,21 @@ dependencies {
 
     // Coroutine Lifecycle Scopes
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+}
+
+def getApiProps(String propName) {
+    def propsFile = rootProject.file('api.properties')
+    if (propsFile.exists()) {
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+
+        if(props.containsKey(propName)) {
+            return props.getProperty(propName)
+        } else {
+            throw new GradleException("Missing property $propName in ${propsFile.absolutePath}")
+        }
+    } else {
+        println("api.properties file not found")
+        return "";
+    }
 }
