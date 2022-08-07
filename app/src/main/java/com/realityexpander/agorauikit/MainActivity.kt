@@ -33,6 +33,7 @@ class MainActivity : ComponentActivity() {
                         composable(route = "room_screen") {
                             RoomScreen(onNavigate = navController::navigate)
                         }
+
                         composable(
                             route = "video_screen/{roomName}",
                             arguments = listOf(
