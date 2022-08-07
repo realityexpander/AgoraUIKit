@@ -31,6 +31,8 @@ fun VideoScreen(
             )
         }
     )
+
+    // Get permission for audio and camera
     LaunchedEffect(key1 = true) {
         permissionLauncher.launch(
             arrayOf(
@@ -39,19 +41,23 @@ fun VideoScreen(
             )
         )
     }
+
     BackHandler {
         agoraView?.leaveChannel()
         onNavigateUp()
     }
+
     if(viewModel.hasAudioPermission.value && viewModel.hasCameraPermission.value) {
         AndroidView(
-            factory = {
+            factory = { context ->
                 AgoraVideoViewer(
-                    it, connectionData = AgoraConnectionData(
+                    context,
+                    connectionData = AgoraConnectionData(
                         appId = AGORA_API
                     )
                 ).also {
-                    it.join(roomName,
+                    it.join(
+                        roomName,
                         token = AGORA_TEMP_RTC_TOKEN
                     )
                     agoraView = it
