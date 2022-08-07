@@ -3,3 +3,4 @@
 #
 # API for Agora: https://console.agora.io/
 AGORA_API="**REPLACE_WITH_AGORA_API**"
+AGORA_TEMP_RTC_TOKEN="**REPLACE_WITH_AGORA_TEMP_RTC_TOKEN**"

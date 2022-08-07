@@ -20,6 +20,7 @@ android {
 
         // Get API Key from https://console.agora.io/ should be kept in `api.properties` file
         buildConfigField "String", "AGORA_API", getApiProps("AGORA_API")
+        buildConfigField "String", "AGORA_TEMP_RTC_TOKEN", getApiProps("AGORA_TEMP_RTC_TOKEN")
     }
 
     buildTypes {
@@ -67,7 +68,7 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 
     // Agora
-    implementation "com.github.AgoraIO-Community:Android-UIKit:v2.0.0"
+    implementation "com.github.AgoraIO-Community.Android-UIKit:final:2.0.6"
 
     // Compose
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0"
